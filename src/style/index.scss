@@ -32,6 +32,7 @@ body {
 .link {
     color: $links-color;
     font-size: 14px;
+    display: block;
 }
 
 .btn:active,
@@ -44,6 +45,11 @@ body {
 .link:hover {
     text-decoration: none;
     color: $links-color;
+}
+
+.red, .red:hover, .red:active{
+    color: $dangerous-color;
+   
 }
 
 .input {
@@ -60,4 +66,7 @@ body {
 .label {
     color: $text-color;
     font-size: 14px;
+}
+.light_color{
+    color: $light-bg-color;
 }

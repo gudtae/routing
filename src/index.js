@@ -2,7 +2,7 @@ import Handlebars from 'handlebars';
 import Login from './pages/login/login.tmpl.js';
 import Signin from './pages/signin/signin.tmpl.js';
 import Profile from './pages/profile/profile.tmpl.js';
-import { ChangeProfile } from './pages/changeProfile/changeProfile.js';
+import ChangeProfile from './pages/changeProfile/changeProfile.js';
 import { ChangePassword } from './pages/changePassword/changePassword.js';
 import { Chat } from './pages/chat/chat.js';
 import { Error404 } from './pages/404/404.js';
@@ -30,11 +30,17 @@ const router = async () => {
         {
             path: '/profile', render: () => {
                 const template = Handlebars.compile(Profile);
-                const result = template({ display_name: 'Ваня', email: 'pochta@ya.ru', login: 'ivanovivan', phone: '88005553535', first_name: 'Иван', second_name: 'Иванов'})
+                const result = template({ display_name: 'Ваня', email: 'pochta@ya.ru', login: 'ivanovivan', phone: '88005553535', first_name: 'Иван', second_name: 'Иванов' })
                 app.innerHTML = result
             }
         },
-        { path: '/changeProfile', render: () => app.textContent = ChangeProfile },
+        {
+            path: '/changeProfile', render: () => {
+                const template = Handlebars.compile(ChangeProfile);
+                const result = template()
+                app.innerHTML = result
+            }
+        },
         { path: '/changePassword', render: () => app.textContent = ChangePassword },
         { path: '/chat', render: () => app.textContent = Chat },
         { path: '/404', render: () => app.textContent = Error404 },
