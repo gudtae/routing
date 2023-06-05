@@ -1,47 +1,49 @@
-import Login from './pages/login/login.js'
-import Signin from './pages/signin/signin.js'
-import Profile from './pages/profile/profile.js'
-import ChangeProfile from './pages/changeProfile/changeProfile.js'
-import ChangePassword from './pages/changePassword/changePassword.js'
-import Chat from './pages/chat/chat.js'
-import Error404 from './pages/404/404.js'
-import Error505 from './pages/505/505.js'
+import {Login} from './pages/login/login.js';
+import {Signin} from './pages/signin/signin.js';
+import {Profile} from './pages/profile/profile.js';
+import ChangeProfile from './pages/changeProfile/changeProfile.js';
+import ChangePassword from './pages/changePassword/changePassword.js';
+import Chat from './pages/chat/chat.js';
+import Error404 from './pages/404/404.js';
+import Error500 from './pages/500/500.js';
+
 const app = document.querySelector('#app')
 const router = async () => {
     const routes = [
-        { path: '/', view: () => console.log('login view') },
-        { path: '/signin', view: () => console.log('signin view') },
-        { path: '/profile', view: () => console.log('profile view') },
-        { path: '/changeProfile', view: () => console.log('chProfile view') },
-        { path: '/changePassword', view: () => console.log('chPassword view') },
-        { path: '/chat', view: () => console.log('chat view') },
-        { path: '/404', view: () => console.log('404 view') },
-        { path: '/505', view: () => console.log('505 view') },
+        { path: '/', render: () => app.textContent = Login },
+        { path: '/signin', render: () => app.textContent = Signin },
+        { path: '/profile', render: () => app.textContent = Profile },
+        { path: '/changeProfile', render: () => app.textContent = ChangeProfile },
+        { path: '/changePassword', render: () => app.textContent = ChangePassword },
+        { path: '/chat', render: () => app.textContent = Chat },
+        { path: '/404', render: () => app.textContent = Error404 },
+        { path: '/500', render: () => app.textContent = Error500 },
     ]
+
     switch (window.location.pathname) {
         case '/signin':
-            routes[1].view();
+            routes[1].render();
             break;
         case '/profile':
-            routes[2].view();
+            routes[2].render();
             break;
         case '/changeProfile':
-            routes[3].view();
+            routes[3].render();
             break;
         case '/changePassword':
-            routes[4].view();
+            routes[4].render();
             break;
         case '/chat':
-            routes[5].view();
+            routes[5].render();
             break;
         case '/404':
-            routes[6].view();
+            routes[6].render();
             break;
         case '/505':
-            routes[7].view();
+            routes[7].render();
             break;
         default:
-            routes[0].view();
+            routes[0].render();
             break;
     }
 
@@ -57,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             navigation(e.target.href);
         }
-        
+
     })
     router()
 })
