@@ -1,8 +1,8 @@
 export default `
-<main>
-    <section>
+<main class="profile_layout">
+    <aside class="profile_aside">
         <a href="/chat"><img src="src/icon/chat.svg" alt="Вернуться в чат" width="50px" height="auto"></a>
-    </section>
+    </aside>
     <section>
         <img src="src/icon/chatIcon.svg" alt="Иконка пользователя" width="100px">
         <p>{{display_name}}</p>
