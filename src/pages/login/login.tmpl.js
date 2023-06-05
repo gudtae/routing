@@ -1,15 +1,15 @@
-export default`<main>
+export default `<main class="log-sign-in">
 <section class="wrapper">
-    <p>Вход</>
+    <p>Вход</p>
     <label for="login">
-        Логин
-        <input type="text" id="login" name="login">
+        <p class="label">Логин</p> 
+        <input type="text" id="login" name="login" class="input">
     </label>
     <label for="password">
-        Пароль
-        <input type="password" id="password" name="password">
+        <p class="label">Пароль</p>
+        <input type="password" id="password" name="password" class="input">
     </label>
-    <a href="/chat">войти</a>
-    <a href="/signin">нет аккаунта?</a>
+    <a href="/chat" class="btn">войти</a>
+    <a href="/signin" class="link">нет аккаунта?</a>
 </section>
 </main>`
