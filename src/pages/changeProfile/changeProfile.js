@@ -1,4 +1,3 @@
 
 
-const ChangeProfile = 'Иземенения данных пользователя'
-export default ChangeProfile
+export const ChangeProfile = 'Иземенения данных пользователя'

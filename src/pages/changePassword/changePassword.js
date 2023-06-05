@@ -1,4 +1,3 @@
 
 
-const ChangePassword = 'Изменение пароля';
-export default ChangePassword
+export const ChangePassword = 'Изменение пароля';

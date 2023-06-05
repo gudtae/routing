@@ -1,0 +1,8 @@
+@import '/src/style/normalize';
+@import '/src/style/variables';
+
+body{
+    font-family: $font;
+    background-color: $bg-color;
+    font-size: 18px;
+}

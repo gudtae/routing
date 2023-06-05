@@ -1,4 +1,3 @@
 
 
-const Chat = 'Вы в чате';
-export default Chat
+export const Chat = 'Вы в чате';
