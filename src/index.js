@@ -3,11 +3,11 @@ import Login from './pages/login/login.tmpl.js';
 import Signin from './pages/signin/signin.tmpl.js';
 import Profile from './pages/profile/profile.tmpl.js';
 import ChangeProfile from './pages/changeProfile/changeProfile.js';
-import { ChangePassword } from './pages/changePassword/changePassword.js';
+import ChangePassword from './pages/changePassword/changePassword.js';
 import { Chat } from './pages/chat/chat.js';
 import { Error404 } from './pages/404/404.js';
 import { Error500 } from './pages/500/500.js';
-
+import { ProfileData } from './pages/data/data.js';
 
 
 const app = document.querySelector('#app')
@@ -30,18 +30,24 @@ const router = async () => {
         {
             path: '/profile', render: () => {
                 const template = Handlebars.compile(Profile);
-                const result = template({ display_name: 'Ваня', email: 'pochta@ya.ru', login: 'ivanovivan', phone: '88005553535', first_name: 'Иван', second_name: 'Иванов' })
+                const result = template(ProfileData)
                 app.innerHTML = result
             }
         },
         {
             path: '/changeProfile', render: () => {
                 const template = Handlebars.compile(ChangeProfile);
+                const result = template(ProfileData)
+                app.innerHTML = result
+            }
+        },
+        {
+            path: '/changePassword', render: () => {
+                const template = Handlebars.compile(ChangePassword);
                 const result = template()
                 app.innerHTML = result
             }
         },
-        { path: '/changePassword', render: () => app.textContent = ChangePassword },
         { path: '/chat', render: () => app.textContent = Chat },
         { path: '/404', render: () => app.textContent = Error404 },
         { path: '/500', render: () => app.textContent = Error500 },
@@ -79,6 +85,7 @@ const navigation = url => {
     history.pushState(null, null, url);
     router();
 };
+
 window.addEventListener("popstate", router);
 document.addEventListener('DOMContentLoaded', () => {
     document.body.addEventListener("click", e => {

@@ -1,11 +1,14 @@
+import backToChat from "../../icon/backToChat.svg";
+import profileIcon from "../../icon/profileIcon.svg";
+
 export default `
 <main class="profile_layout">
     <aside class="profile_aside">
-        <a href="/chat" class="link"><img src="/static/assets/icon/chat.svg" alt="Вернуться в чат" width="30px" height="auto">
+        <a href="/chat" class="link"><img src="${backToChat}" alt="Вернуться в чат" width="30px" height="auto">
         </a>
     </aside>
     <section class="profile_data">
-        <img src="/static/assets/icon/chatIcon.svg" alt="Иконка пользователя" width="100px">
+        <img src="${profileIcon}" alt="Иконка пользователя" width="100px">
         <p>{{display_name}}</p>
         <ul class="profile_user_data">
             <li class="profile_user_flex"><span>Почта</span> <span class="light_color">{{email}}</span></li>
