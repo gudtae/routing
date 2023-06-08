@@ -1,86 +1,90 @@
 import Handlebars from 'handlebars';
-import Login from './pages/login/login.tmpl.js';
-import Signin from './pages/signin/signin.tmpl.js';
-import Profile from './pages/profile/profile.tmpl.js';
+import Login from './pages/login/login.js';
+import Signin from './pages/signin/signin.js';
+import Profile from './pages/profile/profile.js';
 import ChangeProfile from './pages/changeProfile/changeProfile.js';
 import ChangePassword from './pages/changePassword/changePassword.js';
-import { Chat } from './pages/chat/chat.js';
-import { Error404 } from './pages/404/404.js';
-import { Error500 } from './pages/500/500.js';
-import { ProfileData } from './pages/data/data.js';
+import Chat from './pages/chat/chat.js';
+import Error404 from './pages/404/404.js';
+import Error500 from './pages/500/500.js';
+import { ProfileData, ChatData } from './pages/data/data.js';
 
 
-const app = document.querySelector('#app')
+const app = document.querySelector('#app');
+
 const router = async () => {
     const routes = [
         {
-            path: '/', render: () => {
+            path: '/',
+            render: () => {
                 const template = Handlebars.compile(Login);
-                const result = template()
-                app.innerHTML = result
+                const result = template();
+                app.innerHTML = result;
             }
         },
         {
-            path: '/signin', render: () => {
+            path: '/signin',
+            render: () => {
                 const template = Handlebars.compile(Signin);
-                const result = template()
-                app.innerHTML = result
+                const result = template();
+                app.innerHTML = result;
             }
         },
         {
-            path: '/profile', render: () => {
+            path: '/profile',
+            render: () => {
                 const template = Handlebars.compile(Profile);
-                const result = template(ProfileData)
-                app.innerHTML = result
+                const result = template(ProfileData);
+                app.innerHTML = result;
             }
         },
         {
-            path: '/changeProfile', render: () => {
+            path: '/changeProfile',
+            render: () => {
                 const template = Handlebars.compile(ChangeProfile);
-                const result = template(ProfileData)
-                app.innerHTML = result
+                const result = template(ProfileData);
+                app.innerHTML = result;
             }
         },
         {
-            path: '/changePassword', render: () => {
+            path: '/changePassword',
+            render: () => {
                 const template = Handlebars.compile(ChangePassword);
-                const result = template()
-                app.innerHTML = result
+                const result = template(ProfileData);
+                app.innerHTML = result;
             }
         },
-        { path: '/chat', render: () => app.textContent = Chat },
-        { path: '/404', render: () => app.textContent = Error404 },
-        { path: '/500', render: () => app.textContent = Error500 },
-    ]
+        {
+            path: '/chat',
+            render: () => {
+                const template = Handlebars.compile(Chat);
+                const result = template(ChatData);
+                app.innerHTML = result;
+            }
+        },
+        {
+            path: '/404',
+            render: () => {
+                const template = Handlebars.compile(Error404);
+                const result = template();
+                app.innerHTML = result;
+            }
+        },
+        {
+            path: '/500',
+            render: () => {
+                const template = Handlebars.compile(Error500);
+                const result = template();
+                app.innerHTML = result;
+            }
+        },
+    ];
 
-    switch (window.location.pathname) {
-        case '/signin':
-            routes[1].render();
-            break;
-        case '/profile':
-            routes[2].render();
-            break;
-        case '/changeProfile':
-            routes[3].render();
-            break;
-        case '/changePassword':
-            routes[4].render();
-            break;
-        case '/chat':
-            routes[5].render();
-            break;
-        case '/404':
-            routes[6].render();
-            break;
-        case '/505':
-            routes[7].render();
-            break;
-        default:
-            routes[0].render();
-            break;
-    }
+    routes.map(route => {
+        if (window.location.pathname == route.path) return route.render()
+    });
 
-}
+};
 const navigation = url => {
     history.pushState(null, null, url);
     router();
@@ -92,8 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target.matches("a")) {
             e.preventDefault();
             navigation(e.target.href);
-        }
+        };
 
-    })
-    router()
-})
+    });
+    router();
+});

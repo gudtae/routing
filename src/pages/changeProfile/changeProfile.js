@@ -8,37 +8,37 @@ export default `
         </a>
     </aside>
     <section class="profile_data">
-        <div>
-            <img src="${profileIcon}" alt="Иконка пользователя" width="100px"/>
-            <p>{{display_name}}</p>
+        <div class="profile_img">
+            <input type="image" src="${profileIcon}" alt="Иконка пользователя" width="100px"/>
         </div>
-        <ul class="profile_user_data">
-            <label for="email">
+            <p>{{display_name}}</p>
+        <div class="profile_user_data">
+            <label for="email" class="profile_user_flex">
                 <p>Почта</p>
-                <input type="text" id="email" class="input" placeholder={{email}} />
+                <input type="text" id="email" class="input changeProfile" placeholder={{email}} />
             </label>
-            <label for="login">
+            <label for="login" class="profile_user_flex">
                 <p>Логин</p>
-                <input type="text" id="login" class="input" placeholder={{login}} />
+                <input type="text" id="login" class="input changeProfile" placeholder={{login}} />
             </label>
-            <label for="first_name">
+            <label for="first_name" class="profile_user_flex">
                 <p>Имя</p>
-                <input type="text" id="first_" class="input" placeholder={{first_name}} />
+                <input type="text" id="first_" class="input changeProfile" placeholder={{first_name}} />
             </label>
-            <label for="second_name">
+            <label for="second_name" class="profile_user_flex">
                 <p> Фамилия </p>
-                <input type="text" id="second_name" class="input" placeholder={{second_name}} />
+                <input type="text" id="second_name" class="input changeProfile" placeholder={{second_name}} />
             </label>
-            <label for="display_name">
+            <label for="display_name" class="profile_user_flex">
                 <p>Имя в чате</p>
-                <input type="text" id="display_name" class="input" placeholder={{display_name}} />
+                <input type="text" id="display_name" class="input changeProfile" placeholder={{display_name}} />
             </label>
-            <label for="phone">
+            <label for="phone" class="profile_user_flex">
                 <p>Телефон</p>
-                <input type="phone" id="phone" class="input" placeholder={{phone}} />
+                <input type="phone" id="phone" class="input changeProfile" placeholder={{phone}} />
             </label>
-        </ul>
-        <button>Сохранить</button>
+        </div>
+        <button class="btn_save">Сохранить</button>
         <section>
 <main>
 `

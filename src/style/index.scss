@@ -3,7 +3,8 @@
 @import '../pages/login/login.scss';
 @import '../pages//signin/signin.scss';
 @import '../pages/profile/profile.scss';
-
+@import '../pages/changeProfile/changeProfile.scss';
+@import '../pages/chat/chat.scss';
 
 
 
@@ -69,4 +70,19 @@ body {
 }
 .light_color{
     color: $light-bg-color;
+}
+.bold{
+    font-weight: $bold;
+}
+
+.error_layout{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    .error_number{
+        font-size: 4rem;
+    }
 }
